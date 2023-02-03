@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <meta charset="UTF-8">
+    <title>Code</title>
+</head>
+<body>
+<!--/*@thymesVar id="date" type="java"*/-->
+<span id="load_date" th:text="${date}"></span>
+<#if ${views} gte 0>
+    <span id="views_restriction" th:text="${time}  more views allowed"></span>
+</#if>
+<#if ${time} gte 0>
+<span id="time_restriction" th:text="The code will be available for ${time}  seconds"></span>
+</#if>
+<!--<span id="time_restriction" th:text="${time}"></span>-->
+<!--<span id="views_restriction" th:text="${views}"></span>-->
+<!--/*@thymesVar id="code" type="java"*/-->
+<pre id="code_snippet" ><code th:text="${code}"></code></pre>
+</body>
+</html>
