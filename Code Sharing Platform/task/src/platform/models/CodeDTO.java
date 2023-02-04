@@ -12,11 +12,11 @@ import javax.persistence.Id;
 public class CodeDTO {
     @Id
     @JsonProperty("code")
-    String code;
+    private String code;
     @JsonProperty("time")
-    Long time;
+    private Long time;
     @JsonProperty("views")
-    Long views;
+    private Long views;
 
     public void setCode(String code) {
         this.code = code;

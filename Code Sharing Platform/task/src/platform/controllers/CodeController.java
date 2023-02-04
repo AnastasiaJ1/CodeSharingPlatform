@@ -19,7 +19,6 @@ import java.util.*;
 
 @Controller
 public class CodeController {
-    @Autowired
     private final CodeServiceImpl service;
 
     public CodeController(CodeServiceImpl service) {
@@ -30,7 +29,6 @@ public class CodeController {
     @GetMapping("/api/code/{id}")
     public ResponseEntity<?> getAPICode(@PathVariable(value = "id") String id) {
         if(service.isExists(id) != null){
-            System.out.println("/api/code/{id}" + id);
             Code code = service.getById(id);
             return ResponseEntity.status(200).body(service.getCodeResponse(code));
         } else {
@@ -43,7 +41,6 @@ public class CodeController {
     @PostMapping("/api/code/new")
     public ResponseEntity<?> postCode(@RequestBody CodeDTO newCode){
         Code code = new Code(newCode.getCode(), newCode.getTime(), newCode.getViews());
-        System.out.println("/api/code/new" + code.toString());
         service.save(code);
         return ResponseEntity.status(200).body(new IdResponse(code.getId()));
     }
@@ -74,17 +71,13 @@ public class CodeController {
     @GetMapping(value = "/api/code/latest")
     public ResponseEntity<?> getApiCodeLatest() {
         List<Code> result = service.findLast10();
-        System.out.println("/api/code/latest");
         return ResponseEntity.status(200).body(result);
     }
 
     @GetMapping(value = "/code/latest")
     public String getCodeLatest(Model model) {
-        System.out.println("/code/latest");
-
         List<Code> curCodeList = service.findLast10();
         model.addAttribute("codes", curCodeList);
-        System.out.println("bla");
         return "code2";
     }
 

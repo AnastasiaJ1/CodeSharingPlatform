@@ -15,8 +15,8 @@ import javax.persistence.Id;
 public class CodeResponse {
     @Id
     @JsonIgnore
-    String  id;
-    String code;
+    private String  id;
+    private String code;
 
     public CodeResponse(String id, String code, String date, Long time, Long views) {
         this.id = id;

@@ -6,7 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class IdResponse {
     @Id
-    String id;
+    private String id;
     public IdResponse(String id) {
         this.id = id;
     }

@@ -18,21 +18,38 @@ public class Code {
     @JsonIgnore
     @Id
     @Column(name = "id")
-    String id;
+    private String id;
     @Column(name = "code")
-    String code;
+    private String code;
     @Column(name="date")
     @Temporal(TemporalType.TIMESTAMP)
-    Date date;
+    private Date date;
     @JsonIgnore
-    LocalDateTime dateForDiff;
+    private LocalDateTime dateForDiff;
+
+    @Column(name = "time")
+    private Long time;
+
+    @JsonIgnore
+    @Column(name = "timeInit")
+    private Long timeInit;
+
+
+    @Column(name = "views")
+    private Long views;
+    @JsonIgnore
+    @Column(name = "secrettime")
+    private Integer secretTime;
+
+    @JsonIgnore
+    @Column(name = "secretviews")
+    private Integer secretViews;
 
     public LocalDateTime getDateForDiff() {
         return dateForDiff;
     }
 
-    @Column(name = "time")
-    Long time;
+
 
     public Long getTime() {
         return time;
@@ -42,20 +59,7 @@ public class Code {
         this.time = time;
     }
 
-    @JsonIgnore
-    @Column(name = "timeInit")
-    Long timeInit;
 
-
-    @Column(name = "views")
-    Long views;
-    @JsonIgnore
-    @Column(name = "secrettime")
-    Integer secretTime;
-
-    @JsonIgnore
-    @Column(name = "secretviews")
-    Integer secretViews;
 
     public Code(String code, Long time, Long views) {
         this.code = code;

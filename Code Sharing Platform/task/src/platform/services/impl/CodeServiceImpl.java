@@ -19,10 +19,11 @@ import java.util.concurrent.TimeUnit;
 public class CodeServiceImpl implements CodeService {
     private final CodeRepository repository;
 
+
     public CodeServiceImpl(CodeRepository repository) {
         this.repository = repository;
     }
-
+    @Override
     public Code getById(String id){
         if(repository.findById(id).isPresent()){
             Code code = repository.getById(id);
@@ -54,6 +55,7 @@ public class CodeServiceImpl implements CodeService {
         return null;
     }
 
+    @Override
     public Code isExists(String id){
         if(repository.findById(id).isPresent()){
             Code code = repository.getById(id);
@@ -82,15 +84,19 @@ public class CodeServiceImpl implements CodeService {
         }
         return null;
     }
+    @Override
     public void save(Code code){
         repository.save(code);
     }
+    @Override
     public List<Code> findLast10(){
         return repository.findLast10();
     }
+    @Override
     public void deleteAll(){
         repository.deleteAll();
     }
+    @Override
     public CodeResponse getCodeResponse(Code code){
         Long time = 0L;
         Long views = 0L;
