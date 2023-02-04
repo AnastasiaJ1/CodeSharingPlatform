@@ -19,6 +19,7 @@ import java.util.*;
 
 @Controller
 public class CodeController {
+
     private final CodeServiceImpl service;
 
     public CodeController(CodeServiceImpl service) {
@@ -64,7 +65,7 @@ public class CodeController {
     }
     @GetMapping(value = "/code/new", produces = MediaType.TEXT_HTML_VALUE)
     public String getCodeNew() {
-        return "code_new";
+        return "code_new_1";
     }
 
 
